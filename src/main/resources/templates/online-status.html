@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>ItHospital</title>
+  <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+
+<div th:replace="layouts/header :: header"></div>
+
+<main class="container">
+
+  <div >
+    <h1>Заявки на онлайн запись</h1>
+    <div id="analyzes" th:each="el : ${value}">
+      <h1 th:text="${el.name} + ' ' + ${el.patronymic} + ' ' + ${el.surname}"/>
+      <h2 th:text="${el.email}"/>
+      <h3 th:text="${el.number}"/>
+      <h3 th:text="${el.date}"/>
+      <h1 th:text="${el.staff}"/>
+      <h3 th:text="${el.problem}"/>
+      <h1 th:text="'Статус оплаты:  ' + ${el.status}"/>
+      <form method="post" th:action="@{'/online/status/'+${el.id}}">
+        <button>Оплачено</button>
+      </form>
+    </div>
+  </div>
+
+</main>
+
+<div th:replace="layouts/footer :: footer"></div>
+
+</body>
+</html>

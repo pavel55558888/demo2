@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" >
+  <title>ItHospital</title>
+  <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+
+<div th:replace="layouts/header :: header"></div>
+
+<main class="container">
+  <h1>Изменить данные сотрудника</h1>
+  <form method="post" th:action="@{'/staff/' + ${Staff.id} + '/update'}">
+    <input type="text" name="name" th:value="${Staff.name}" placeholder="Введите фио" >
+    <input type="text" name="post" th:value="${Staff.post}" placeholder="Введите должность" >
+    <input type="number" name="experience" th:value="${Staff.experience}" placeholder="Введите стаж" >
+    <input type="text" name="img" th:value="${Staff.img}" placeholder="Прикрепите URL фото" >
+    <textarea name="fullInformation" th:text="${Staff.fullInformation}" placeholder="Введите полную информацию"></textarea>
+    <button type="submit">Изменить</button>
+  </form>
+</main>
+
+<div th:replace="layouts/footer :: footer"></div>
+
+</body>
+</html>

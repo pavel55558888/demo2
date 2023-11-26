@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ItHospital</title>
+    <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+
+    <div th:replace="layouts/header :: header"></div>
+
+    <main class="container">
+        <div class="presentation">
+            <img src="https://лобов74.рф/wp-content/uploads/2022/06/o_8c262a15f6.jpg" alt="">
+            <h1>Здоровье для всей семьи</h1>
+            <p>ItHospital</p>
+        </div>
+        <h3 class="text1">У нас вы можете пройти полное медицинское обследование, получить консультацию терапевта или узкого специалиста – кардиолога, гастроэнтеролога, проктолога. Клиника  находится на левом берегу, возле остановки "Гвардейская". Запишитесь на прием  – онлайн или по телефону.</h3>
+        <img id="img1" src="https://avatars.mds.yandex.net/i?id=a571f5fbf307efd1245b8e344c1b9c42bd7d317b-8185245-images-thumbs&n=13" alt="">
+        <h3 class="text1">С 15 мая по 15 декабря действует скидка для it-специалистов 35%</h3>
+
+    </main>
+
+    <div th:replace="layouts/footer :: footer"></div>
+
+</body>
+</html>

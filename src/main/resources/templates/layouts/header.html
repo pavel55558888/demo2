@@ -1,0 +1,22 @@
+<header class="container" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" th:fragment="header">
+  <span class="logo"><a href="/">ItHospital</a></span>
+  <nav>
+    <a href="/">Главная страница</a>
+    <a href="/services">Услуги</a>
+
+    <span sec:authorize="!isAuthenticated()">
+      <a href="/auth">Войти</a>
+    </span>
+
+    <span sec:authorize="isAuthenticated()">
+      <a href="/user">Личный кабинет</a>
+    </span>
+
+    <span sec:authorize="hasAuthority('REDACTOR') || hasAuthority('ADMIN')">
+      <a href="/staff/add">Добавить сотрудника</a>
+    </span>
+
+    <button id="floating-button"><a href="/online">Запись онлайн</a></button>
+
+  </nav>
+</header>

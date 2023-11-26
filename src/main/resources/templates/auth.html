@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <title>Авторизация</title>
+    <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+
+<div th:replace="layouts/header :: header"></div>
+
+<main class="container">
+    <h1>Вход в учетную запись</h1>
+    <form th:action="@{/login}" method="post">
+        <input type="text" name="username" placeholder="Введите логин">
+        <input type="password" name="password" placeholder="Введите пароль">
+        <button type="submit">Войти</button>
+        <p>Нет акканту?<a id="a" href="/reg"> зарегистрируйся!</a></p>
+
+    </form>
+</main>
+
+<div th:replace="layouts/footer :: footer"></div>
+
+</body>
+</html>

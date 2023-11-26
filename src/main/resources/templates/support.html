@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>ItHospital</title>
+  <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+
+<div th:replace="layouts/header :: header"></div>
+
+<main class="container">
+  <form th:action="@{/support}" method="post">
+    <input name="text" type="text" placeholder="Укажите баг сайта">
+    <input name="date" type="date" placeholder="Укажите дату">
+    <button>Отправить</button>
+  </form>
+</main>
+
+<div th:replace="layouts/footer :: footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <title>ItHospital</title>
+    <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+
+<div th:replace="layouts/header :: header"></div>
+
+<main class="container">
+    <h1>Добавить нового сотрудника</h1>
+    <form th:action="@{/staff/add}" method="post">
+        <input type="text" name="names" placeholder="Введите фио">
+        <input type="text" name="post" placeholder="Введите должность">
+        <input type="number" name="experience" placeholder="Введите стаж">
+        <input type="text" name="img" placeholder="Прикрепите URL фото">
+        <textarea name="fullInformation" placeholder="Введите полную информацию"></textarea>
+        <button type="submit">Добавить</button>
+
+    </form>
+</main>
+
+<div th:replace="layouts/footer :: footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>ItHospital</title>
+  <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+
+<div th:replace="layouts/header :: header"></div>
+
+<main class="container">
+  <h1>Онлайн запись к врачу</h1>
+  <form th:action="@{/online}" method="post">
+    <input name="names" type="text" placeholder="Введите ваше фио">
+    <input name="email" type="email" placeholder="Введите вашу почту">
+    <input name="number" type="number" placeholder="Введите ваш номер телефона">
+    <input name="date" type="date">
+    <input name="staff" type="text" placeholder="К кому вы хотите записаться?">
+    <input name="problem" type="text" placeholder="Опишите вашу проблему">
+    <button>Отправить</button>
+  </form>
+
+</main>
+
+<div th:replace="layouts/footer :: footer"></div>
+
+</body>
+</html>
