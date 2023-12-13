@@ -24,7 +24,7 @@ public class SecurityController {
 
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/staff/add", "/staff/*/update","/staff/*/delete","/user","/online/status","/online/status/*","/search","/support/status").authenticated()
+                        .requestMatchers("/staff/add", "/staff/*/update","/staff/*/delete","/user","/online/status","/online/status/*","/search","/support/status","/traumatologist/**", "/cardiologist/**","/therapist/**","/ultrasound/**").authenticated()
                         .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated()
                 )

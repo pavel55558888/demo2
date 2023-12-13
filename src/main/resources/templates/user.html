@@ -15,12 +15,10 @@
 
     <br>
     <a id="pass" href="/user/password" sec:authorize="hasAuthority('USER')">Изменить пароль</a>
-    <a id="online" href="/online/status" sec:authorize="hasAuthority('ADMIN')">Заявка на онлайн запись</a>
-    <br sec:authorize="hasAuthority('ADMIN')">
-    <br sec:authorize="hasAuthority('ADMIN')">
-    <a id="pass" href="/search" sec:authorize="hasAuthority('ADMIN')">Поиск пользователя</a>
-    <br sec:authorize="hasAuthority('ADMIN')">
-    <br sec:authorize="hasAuthority('ADMIN')">
+    <a id="online" href="/online/status" sec:authorize="hasAuthority('REDACTOR')">Заявка на онлайн запись</a>
+    <br sec:authorize="hasAuthority('REDACTOR')">
+    <br sec:authorize="hasAuthority('REDACTOR')">
+    <a id="pass" href="/search" sec:authorize="hasAuthority('REDACTOR')">Поиск пользователя</a>
     <a id="pass" href="/support/status" sec:authorize="hasAuthority('ADMIN')">Техническая поддержка</a>
     <br sec:authorize="hasAuthority('ADMIN')">
     <br>
@@ -36,12 +34,13 @@
             <option value=”USER” name="USER">USER</option>
             <option value=”REDACTOR” name="REDACTOR">REDACTOR</option>
             <option value=”ADMIN” name="ADMIN">ADMIN</option>
+            <option value=”DOCTOR” name="DOCTOR">DOCTOR</option>
         </select>
 
         <button>Изменить</button>
     </form>
 
-    <form th:action="@{/user/add}" method="post" sec:authorize="hasAuthority('REDACTOR')">
+    <form th:action="@{/user/add}" method="post" sec:authorize="hasAuthority('DOCTOR')">
 
         <input type="text" name="login" placeholder="Введите логин пациента">
         <input type="text" name="fcs" placeholder="Введите фио пациента">
@@ -51,6 +50,13 @@
         <button>Добавить</button>
 
     </form>
+
+    <div sec:authorize="hasAuthority('REDACTOR')" id="div_doctor">
+        <a href="/traumatologist/add"><button id="but_doctor">Запись к травмотологу</button></a>
+        <a href="/cardiologist/add"><button id="but_doctor">Запись к кардиологу</button></a>
+        <a href="/therapist/add"><button id="but_doctor">Запись к терапевту</button></a>
+        <a href="/ultrasound/add"><button id="but_doctor">Запись на узи</button></a>
+    </div>
 
     <form th:action="@{/logout}" method="post">
         <button type="submit">Выйти</button>
@@ -67,6 +73,8 @@
             <h5 th:text="${el.result}"/>
          </div>
     </div>
+
+
 
 </main>
 

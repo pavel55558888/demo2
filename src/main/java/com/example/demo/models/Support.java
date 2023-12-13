@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Support {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String text;
     private String date;

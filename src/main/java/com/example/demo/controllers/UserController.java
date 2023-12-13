@@ -105,6 +105,9 @@ public class UserController {
         } else if (role.length() == 7) {
             User user = new User(login, mail, password, true, Collections.singleton(Role.ADMIN));
             UserRepo.save(user);
+        } else if (role.length() == 8) {
+            User user = new User(login, mail, password, true, Collections.singleton(Role.DOCTOR));
+            UserRepo.save(user);
         }
 
 
